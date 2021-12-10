@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;      // 需要使用 UI 介面 
 using System.Collections;
 
 /// <summary>
@@ -23,9 +23,13 @@ public class DialogueSystem : MonoBehaviour
     private IEnumerator TypeEffect()
     {
         string test = "哈嘍，你好";
+
+        textContent.text = "";        // 清除上次對話內容
+        goDialogue.SetActive(true);   // 顯示對話物件
+
         for (int i = 0; i < test.Length; i++)
         {
-            print(test[i]);
+            textContent.text += test[i];  // 疊加對話內容到文字界面
             yield return new WaitForSeconds(interval);
         }
     }
