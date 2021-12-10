@@ -126,6 +126,10 @@ public class dai : MonoBehaviour
         // print("碰到的物件名稱:" + hit.name);  
 
         isGrounded = hit;
+
+        // 當 不在地板上 勾選
+        ani.SetBool(parameterJump, !isGrounded);
+
     }
 
     /// <summary>
@@ -138,10 +142,7 @@ public class dai : MonoBehaviour
         {
             // 剛體,添加推力(二維向量)
             rig.AddForce(new Vector2(0, jump));
-
-            // 當 不在地板上 勾選
-            ani.SetBool(parameterJump, !isGrounded);
-        }
+    }
     }
     #endregion
 
